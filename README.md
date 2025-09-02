@@ -67,14 +67,8 @@ Key highlights include:
 ## 📊 Diagrams
 
 * **Class Diagram**
-  ![Class Diagram](docs/images/class-diagram.png)
-
-* **Spring Security Diagram**
-  ![Security Diagram](docs/images/security-diagram.png)
-
-* **Backend Pipeline**
-  ![Backend Pipeline](docs/images/backend-pipeline.png)
-
+  ![Class Diagram](class-diagram.png)
+  
 ---
 
 ## 🛠️ Technologies Used
@@ -130,11 +124,11 @@ This project is licensed under the **Apache License 2.0** – see the [LICENSE](
 
 ### 🔹 Backend Setup
 
-See [Backend Setup Instructions](./book-social-network/README.md)
+See [Backend Setup Instructions](./book-network/README.md)
 
 ### 🔹 Frontend Setup
 
-See [Frontend Setup Instructions](./book-social-network-ui/README.md)
+See [Frontend Setup Instructions](./book-network-ui/README.md)
 
 ---
 
