@@ -1,0 +1,29 @@
+.navbar {
+  border-radius: 12px;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.2s ease-in-out, transform 0.2s;
+}
+
+.nav-link:hover {
+  color: #0d6efd; /* Bootstrap primary */
+  transform: translateY(-1px);
+}
+
+.input-group input:focus {
+  box-shadow: none;
+}
+
+.btn-outline-primary {
+  border: none;
+}
+
+.btn-outline-danger {
+  border: none;
+}
+
+.btn-outline-danger:hover {
+  background-color: #f8d7da;
+}

@@ -1,0 +1,38 @@
+/* Alerts */
+.alert {
+  font-size: 0.95rem;
+  border: none;
+}
+
+/* Pagination */
+.pagination .page-link {
+  border: none;
+  transition: all 0.2s ease-in-out;
+  background-color: #f8f9fa;
+}
+
+.pagination .page-link:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.pagination .page-link.active {
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagination .page-item.disabled .page-link {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Book list layout */
+app-book-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+app-book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}

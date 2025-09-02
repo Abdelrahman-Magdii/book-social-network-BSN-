@@ -147,5 +147,3 @@ See [Frontend Setup Instructions](./book-social-network-ui/README.md)
 ## 🙌 Acknowledgments
 
 Special thanks to the developers and maintainers of the technologies used in this project.
-
----# book-social-network-BSN-
