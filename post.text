@@ -1,0 +1,29 @@
+🌟 Excited to share my latest project: Book Social Network 📚✨
+This is a full-stack application that allows users to manage their personal book collections and connect with a community of book enthusiasts. From secure registration and authentication to borrowing, returning, and sharing books, the app is designed to deliver both functionality and security.
+
+🔐 Key Features:
+User registration with secure email validation
+JWT-based authentication & role-based authorization
+Book management: create, update, share, archive
+Borrowing & returning with availability checks
+Approval workflow for book returns
+Swagger UI documentation for backend APIs
+Responsive, component-based frontend with Angular
+
+🛠️ Tech Stack:
+Backend: Spring Boot 3, Spring Security 6, JWT, Spring Data JPA, OpenAPI, Docker
+Frontend: Angular, Bootstrap, OpenAPI Generator, Authentication Guard
+DevOps: Docker, GitHub Actions CI/CD
+
+📖 Project Highlights:
+Implemented REST API best practices with secure endpoints
+Designed with scalable architecture and environment-specific profiles
+Dockerized for seamless deployment
+API documented with Swagger UI for easy integration
+
+🔗 Check out the project on GitHub:
+ 👉 https://lnkd.in/dfrAuEyz
+
+Building this project gave me the chance to work through end-to-end application development — from backend security to frontend UI, and even CI/CD pipelines.
+
+#FullStackDevelopment #SpringBoot #SpringSecurity #Angular #JWT #Docker #BookSocialNetwork #OpenSource

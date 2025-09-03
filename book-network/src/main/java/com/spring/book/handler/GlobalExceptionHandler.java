@@ -14,78 +14,81 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import jakarta.mail.MessagingException;
-import lombok.var;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(LockedException.class)
-    public ResponseEntity<ExceptionResponse> handleException(LockedException exp) {
-        return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .body(ExceptionResponse.builder()
-                        .businessErrorCode(BusinessErrorCodes.ACCOUNT_LOCKED.getCode())
-                        .businessExceptionDescription(BusinessErrorCodes.ACCOUNT_LOCKED.getDescription())
-                        .error(exp.getMessage())
-                        .build());
-    }
+        @ExceptionHandler(LockedException.class)
+        public ResponseEntity<ExceptionResponse> handleException(LockedException exp) {
+                return ResponseEntity
+                                .status(HttpStatus.UNAUTHORIZED)
+                                .body(ExceptionResponse.builder()
+                                                .businessErrorCode(BusinessErrorCodes.ACCOUNT_LOCKED.getCode())
+                                                .businessExceptionDescription(
+                                                                BusinessErrorCodes.ACCOUNT_LOCKED.getDescription())
 
-    @ExceptionHandler(DigestException.class)
-    public ResponseEntity<ExceptionResponse> handleException(DigestException exp) {
-        return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .body(ExceptionResponse.builder()
-                        .businessErrorCode(BusinessErrorCodes.ACCOUNT_DISABLED.getCode())
-                        .businessExceptionDescription(BusinessErrorCodes.ACCOUNT_DISABLED.getDescription())
-                        .error(exp.getMessage())
-                        .build());
-    }
+                                                .error(exp.getMessage())
+                                                .build());
+        }
 
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ExceptionResponse> handleException(BadCredentialsException exp) {
-        return ResponseEntity
-                .status(HttpStatus.UNAUTHORIZED)
-                .body(ExceptionResponse.builder()
-                        .businessErrorCode(BusinessErrorCodes.BAD_CREDENTIALS.getCode())
-                        .businessExceptionDescription(BusinessErrorCodes.BAD_CREDENTIALS.getDescription())
-                        .error(BusinessErrorCodes.BAD_CREDENTIALS.getDescription())
-                        .build());
-    }
+        @ExceptionHandler(DigestException.class)
+        public ResponseEntity<ExceptionResponse> handleException(DigestException exp) {
+                return ResponseEntity
+                                .status(HttpStatus.UNAUTHORIZED)
+                                .body(ExceptionResponse.builder()
+                                                .businessErrorCode(BusinessErrorCodes.ACCOUNT_DISABLED.getCode())
+                                                .businessExceptionDescription(
+                                                                BusinessErrorCodes.ACCOUNT_DISABLED.getDescription())
+                                                .error(exp.getMessage())
+                                                .build());
+        }
 
-    @ExceptionHandler(MessagingException.class)
-    public ResponseEntity<ExceptionResponse> handleException(MessagingException exp) {
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ExceptionResponse.builder()
-                        .error(exp.getMessage())
-                        .build());
-    }
+        @ExceptionHandler(BadCredentialsException.class)
+        public ResponseEntity<ExceptionResponse> handleException(BadCredentialsException exp) {
+                return ResponseEntity
+                                .status(HttpStatus.UNAUTHORIZED)
+                                .body(ExceptionResponse.builder()
+                                                .businessErrorCode(BusinessErrorCodes.BAD_CREDENTIALS.getCode())
+                                                .businessExceptionDescription(
+                                                                BusinessErrorCodes.BAD_CREDENTIALS.getDescription())
+                                                .error(BusinessErrorCodes.BAD_CREDENTIALS.getDescription())
+                                                .build());
+        }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ExceptionResponse> handleException(MethodArgumentNotValidException exp) {
-        Set<String> errors = new HashSet<>();
-        exp.getBindingResult().getAllErrors()
-                .forEach(error -> {
-                    var errorMessage = error.getDefaultMessage();
-                    errors.add(errorMessage);
-                });
+        @ExceptionHandler(MessagingException.class)
+        public ResponseEntity<ExceptionResponse> handleException(MessagingException exp) {
+                return ResponseEntity
+                                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body(ExceptionResponse.builder()
+                                                .error(exp.getMessage())
+                                                .build());
+        }
 
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(ExceptionResponse.builder()
-                        .validationErrors(errors)
-                        .build());
-    }
+        @ExceptionHandler(MethodArgumentNotValidException.class)
+        public ResponseEntity<ExceptionResponse> handleException(MethodArgumentNotValidException exp) {
+                Set<String> errors = new HashSet<>();
+                exp.getBindingResult().getAllErrors()
+                                .forEach(error -> {
+                                        var errorMessage = error.getDefaultMessage();
+                                        errors.add(errorMessage);
+                                });
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ExceptionResponse> handleException(Exception exp) {
+                return ResponseEntity
+                                .status(HttpStatus.BAD_REQUEST)
+                                .body(ExceptionResponse.builder()
+                                                .validationErrors(errors)
+                                                .build());
+        }
 
-        exp.printStackTrace();
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ExceptionResponse.builder()
-                        .businessExceptionDescription("Internal error, contact the admin")
-                        .error(exp.getMessage())
-                        .build());
-    }
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity<ExceptionResponse> handleException(Exception exp) {
+
+                exp.printStackTrace();
+                return ResponseEntity
+                                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                .body(ExceptionResponse.builder()
+                                                .businessExceptionDescription("Internal error, contact the admin")
+                                                .error(exp.getMessage())
+                                                .build());
+        }
 }

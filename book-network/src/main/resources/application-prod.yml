@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/book_social_network
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  open-in-view: false
+
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME:abdelrahman}
+    password: ${MAIL_PASSWORD:abdelrahman}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: "*"
+          starttls:
+            enable: true
+    protocol: smtp
+
+application:
+  file:
+    uploads:
+      photos-output-path: ./uploads
+  mailing:
+    frontend:
+      activation-url: ${FRONTEND_ACTIVATION_URL:http://localhost:4200/activate-account}
+
+security:
+  jwt:
+    secret-key: ${JWT_SECRET:MzIxNjU2NTQ2ODQ4NDg2NDY2ODc1NjQ1NDU0NTQ4NzY4NDY4NzY4NTIyMjY5OTY1NDk0OTg0NDMxNjg3NjEzNTY3NA}
+    expiration: ${JWT_EXPIRATION:8640000}
+
+server:
+  port: ${SERVER_PORT:8088}
+# springdoc:
+#   api-docs:
+#     path: /api-docs
+#   swagger-ui:
+#     path: /swagger-ui.html
+
